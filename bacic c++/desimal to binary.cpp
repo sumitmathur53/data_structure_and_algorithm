@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-
+// decimal to binary
 int main(){
     int n;
     cin>>n;
