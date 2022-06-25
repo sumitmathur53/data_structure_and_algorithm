@@ -10,11 +10,8 @@ int unique(int arr[], int n){
                 if(arr[i]==arr[j]){
                     break;
                 }
-            }
-
-            
-        }
-        
+            }            
+        }        
         if(j==n){
             return arr[i];
         }

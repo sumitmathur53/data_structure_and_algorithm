@@ -1,75 +1,49 @@
 #include<iostream>
 using namespace std;
 #include<bits/stdc++.h>
-void merge(int arr[], int start, int mid, int end){
-    int n1 = mid-start+1;
-    int n2 = end-mid;
 
-    int a[n1];
-    int b[n2];
 
-    for(int i=0;i<n1;i++){
-        a[i] = arr[start+i];
+class student{
+    public:
+    int rollnumber;
+    private:
+    int age;
+    public:
+    // default constructor
+    student(){
+        cout<<"contructor called"<<endl;
     }
-    for(int i=0;i<n2;i++){
-        b[i]=arr[mid+1+i];
+    // parameterised constructor;
+    student(int r){
+        cout<<"contructor 2 called"<<endl;
+        rollnumber = r;
     }
-
-    int i=0,j=0;
-    int k=start;
-
-    while(i<n1 && j<n2){
-         if(a[i]<b[j]){
-             arr[k]=a[i];
-             i++;
-             k++;
-         }else{
-             arr[k]=b[j];
-             j++;
-             k++;
-         }
+    student(int a, int r){
+        cout<<"constructor 3 called"<<endl;
+        this->age = a;
+        this->rollnumber = r;
     }
 
-    while(i<n1){
-        arr[k]=a[i];
-        i++;
-        k++;
+    void display(){
+        cout<<age<<" "<<rollnumber<<endl;
     }
-    while(j<n2){
-        arr[k]=b[j];
-        j++;
-        k++;
+    
+    // distructor
+    ~student(){
+        cout<<"distructor called"<<endl;
     }
 
-}
+};
 
-void mergsort(int arr[], int start, int end){
-    if(start>=end){
-        return;
-    }
-    int mid = (start+end)/2;
+int main(){
+   student s1;  // contructor 1 called
+   student s2(100);  // constructor2 called
+   student s3(12,1233); // constructor 3 called
 
-    mergsort(arr,start,mid);
-    mergsort(arr,mid+1,end);
-    merge(arr,start,mid,end);
-}
-int main()
-{
-    int n;
-    cin>>n;
-    int arr[n];
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
-    }
-    mergsort(arr,0,n);
-    for(int i=0;i<n;i++){
-        cout<<arr[i]<<" ";
-    }
-    cout<<endl;
-    for(int i=0;i<n;i+2){
-        if(arr[i]!=arr[i+1]){
-            cout<<arr[i]<<" ";
-            
-        }
-    }
+   student s4(s3);  // copy constructor called
+
+   s1 = s2;  // cpy assignment operator
+
+   student s5 = s4;  // student s5(s4); cpy constructor called
+   
 }
