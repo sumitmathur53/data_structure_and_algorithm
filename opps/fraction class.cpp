@@ -29,7 +29,7 @@ class fraction{
           this->denominator = this->denominator/gcd;  
         }
 
-       void add(fraction f2){
+       void add(fraction const &f2){
          int lcm = denominator * f2.denominator;
          int x = lcm/denominator;
          int y = lcm/f2.denominator;
@@ -43,7 +43,13 @@ class fraction{
          simplify();
          
        }
-
+      
+       void multiply(fraction const &f2){
+        numerator = numerator * f2.numerator;
+        denominator = denominator * f2.denominator;
+        
+        simplify();
+       }
       
 };
 
@@ -56,5 +62,7 @@ int main(){
     f1.print();
     f2.print();
 
-
+    f1.multiply(f2);
+    f1.print();
+    f2.print();
 }
