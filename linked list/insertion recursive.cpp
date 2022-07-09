@@ -23,7 +23,7 @@ node* insernoderecursive(node* head, int data, int pos){
     }
 
     node* newnode = new node(data);
-    if(pos==0){
+    if(pos==0){ 
         newnode->next = head;
         head = newnode;
         return head;
