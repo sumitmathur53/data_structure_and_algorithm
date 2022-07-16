@@ -24,3 +24,19 @@ Node *reverseLinkedListRec(Node *head)
     head->next = NULL;
     return newhead;
 }
+
+Node* reverse(Node* head){
+    if(head==NULL || head->next == NULL){
+        return head;
+    }
+
+    Node* small = reverse(head->next);
+    Node* temp = small;
+
+    while(temp->next!=NULL){
+        temp = temp->next;
+    }
+    temp->next = head;
+    head->next = NULL;
+    return small;
+}
