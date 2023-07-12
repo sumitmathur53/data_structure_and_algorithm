@@ -1,28 +1,21 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// map is an assosiative array
 int main(){
 
-    map<int,int> order;
-    map<string,int> marks;
+    int n;
+    cin>>n;
 
-    marks["sumit"] = 98;
-    marks["jack"] = 59;
-    marks["jai"] = 10;
+    bool flag = 0;
 
-    map<string,int> :: iterator it;
-
-    for(it = marks.begin(); it!=marks.end();it++){
-        cout<<(*it).first<<" "<<(*it).second;
-        cout<<endl;
-    }   
-
-    for(auto it : marks){
-        cout<<(it).first<<" "<<(it).second;
-        cout<<endl;
+    for(int i=2;i<n;i++){
+        if(n%i==0){
+            flag = 1;
+            break;
+        }
     }
 
-   
-
+    if(flag==0){
+        cout<<"primr"<<endl;
+    }
 }
